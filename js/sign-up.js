@@ -37,3 +37,25 @@ $('.cancel-signup').click(function(){
     //code to run when user clicks "No Thanks!" button
     window.location = 'http://www.google.com';
 }); //cancel-signup click
+
+$('select[name="refer"]').change(function(){
+    //get a ref to the refer select
+    //add the refer-other input
+    var referSelect = $(this);
+    var otherInput = $('[name="refer-other"]');
+
+    //if the refer select's value in lower case is equal to "other"...
+    if ('other' === referSelect.val().toLowerCase()) {
+        //remove the disabled attribute from the
+        //refer-other input, show it, and set focus to it
+        otherInput.removeAttr('disabled');
+        otherInput.show();
+        otherInput.focus()
+    }
+    else {
+        //otherwise, make the refer-other input disabled
+        //and hide it
+        otherInput.attr('disabled', true);
+        otherInput.hide();
+    }
+}); //refer change function
